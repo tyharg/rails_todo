@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todo List</h1>
+
+</br>
+
+<div>
+  <h2> Due Date </h2>
+  <form>
+    <input id="date" name="date" type="date" value="<%= @date_str %>"/>
+    <input type="submit" value="Go">
+  </form>
+</div>
+
+</br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Due</th>
+      <th>Completed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_lists.each do |todo_list| %>
+      <tr>
+        <td><%= todo_list.title %></td>
+        <td><%= todo_list.description %></td>
+        <td><%= todo_list.due.to_formatted_s(:short) %></td>
+        <td><%= todo_list.completed ? 'Yes' : 'No' %></td>
+        <td><%= link_to 'View', todo_list %></td>
+        <td><%= link_to 'Update', edit_todo_list_path(todo_list) %></td>
+        <td><%= link_to 'Remove', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if @date%>
+  <%= link_to 'View All', todo_lists_path %>
+<% end %>
+</br>
+<%= link_to 'New Item', new_todo_list_path %>
