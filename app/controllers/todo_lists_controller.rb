@@ -3,7 +3,14 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists or /todo_lists.json
   def index
-    @todo_lists = TodoList.all
+    @date_str = params[:date]
+    if @date_str
+      @date = Date.parse(@date_str)
+      @todo_lists = TodoList.where(due: @date.beginning_of_day..@date.end_of_day)
+    else
+      @todo_lists = TodoList.all
+    end
+      
   end
 
   # GET /todo_lists/1 or /todo_lists/1.json

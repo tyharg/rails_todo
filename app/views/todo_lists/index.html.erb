@@ -2,6 +2,18 @@
 
 <h1>Todo List</h1>
 
+</br>
+
+<div>
+  <h2> Due Date </h2>
+  <form>
+    <input id="date" name="date" type="date" value="<%= @date_str %>"/>
+    <input type="submit" value="Go">
+  </form>
+</div>
+
+</br>
+
 <table>
   <thead>
     <tr>
@@ -18,7 +30,7 @@
       <tr>
         <td><%= todo_list.title %></td>
         <td><%= todo_list.description %></td>
-        <td><%= todo_list.due %></td>
+        <td><%= todo_list.due.to_formatted_s(:short) %></td>
         <td><%= todo_list.completed ? 'Yes' : 'No' %></td>
         <td><%= link_to 'View', todo_list %></td>
         <td><%= link_to 'Update', edit_todo_list_path(todo_list) %></td>
@@ -30,4 +42,8 @@
 
 <br>
 
+<% if @date%>
+  <%= link_to 'View All', todo_lists_path %>
+<% end %>
+</br>
 <%= link_to 'New Item', new_todo_list_path %>
