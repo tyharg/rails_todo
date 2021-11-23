@@ -17,8 +17,8 @@
 
 <p>
   <strong>Completed:</strong>
-  <%= @todo_list.completed %>
+  <%= @todo_list.completed  ? 'Yes' : 'No' %>
 </p>
 
-<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+<%= link_to 'Update', edit_todo_list_path(@todo_list) %> |
 <%= link_to 'Back', todo_lists_path %>
