@@ -15,6 +15,8 @@ Written on Ruby 2.6.7 & Rails 6.1
 
 ## Screenshots 
 ![image](https://user-images.githubusercontent.com/2886930/143160413-067f4f38-875a-407c-99db-6fbdf63f705c.png)
+![image](https://user-images.githubusercontent.com/2886930/143160755-7694ec2d-ff92-46bb-b437-d06028d65f1d.png)
+
 
 
 ## Future Enhancements
